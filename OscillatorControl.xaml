@@ -40,7 +40,6 @@
                 <ComboBoxItem Content="Square" />
                 <ComboBoxItem Content="Triangle" />
                 <ComboBoxItem Content="SawTooth" />
-                <ComboBoxItem Content="Sweep" />
                 <ComboBoxItem Content="Pink" />
                 <ComboBoxItem Content="White" />
             </ComboBox>

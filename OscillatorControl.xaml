@@ -10,7 +10,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="40" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="30" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="60" />
@@ -24,18 +25,20 @@
         </Border>
         
         <!-- Sliders -->
-        <Slider Grid.Row="1" Grid.Column="0" Height="225" Orientation="Vertical" HorizontalAlignment="Center" Value="{Binding Frequency}" Minimum="0" Maximum="15000" TickFrequency="1" IsSnapToTickEnabled="True" />
-        <Slider x:Name="AmpSlider" Grid.Row="1" Grid.Column="1" Height="225" Orientation="Vertical" HorizontalAlignment="Center" Value="{Binding Amplitude}" Minimum="0" Maximum="100" TickFrequency="0.1" IsSnapToTickEnabled="True" />
+        <Slider Grid.Row="1" Grid.Column="0" Height="215" Orientation="Vertical" HorizontalAlignment="Center" Value="{Binding Frequency}" Minimum="0" Maximum="10000" TickFrequency="1" IsSnapToTickEnabled="True" />
+        <Slider x:Name="AmpSlider" Grid.Row="1" Grid.Column="1" Height="215" Orientation="Vertical" HorizontalAlignment="Center" Value="{Binding Amplitude}" Minimum="0" Maximum="1000" TickFrequency="0.1" IsSnapToTickEnabled="True" />
         
         <!-- Slider values -->
-        <TextBox Grid.Row="2" Grid.Column="0" Width="50" Height="20" VerticalAlignment="Center" Text="{Binding Frequency}" KeyUp="TextBox_KeyEnterUpdate" />
-        <TextBox Grid.Row="2" Grid.Column="1" Width="50" Height="20" Text="{Binding Amplitude}" KeyUp="TextBox_KeyEnterUpdate" />
+        <Label Grid.Row="2" Grid.Column="0" Padding="0" HorizontalAlignment="Center" Content="Freq" />
+        <TextBox Grid.Row="3" Grid.Column="0" Width="50" Height="20" VerticalAlignment="Center" Text="{Binding Frequency}" KeyUp="TextBox_KeyEnterUpdate" />
+        <Label Grid.Row="2" Grid.Column="1" Padding="0" HorizontalAlignment="Center" Content="Amp" />
+        <TextBox Grid.Row="3" Grid.Column="1" Width="50" Height="20" Text="{Binding Amplitude}" KeyUp="TextBox_KeyEnterUpdate" />
         
         <!-- Oscillator options -->
         <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Center">
-            <CheckBox HorizontalAlignment="Center" IsChecked="{Binding Enabled}" Content="Enabled" />
-            <Label HorizontalAlignment="Center" Content="Wave Type" />
-            <ComboBox Width="70" SelectedValue="{Binding WaveType}" SelectedValuePath="Content">
+            <CheckBox HorizontalAlignment="Left" IsChecked="{Binding Enabled}" Content="Enabled" />
+            <Label HorizontalAlignment="Left" Content="Wave Type" />
+            <ComboBox Width="75" HorizontalAlignment="Left" SelectedValue="{Binding WaveType}" SelectedValuePath="Content">
                 <ComboBoxItem Content="Sin" IsSelected="True" />
                 <ComboBoxItem Content="Square" />
                 <ComboBoxItem Content="Triangle" />
@@ -43,10 +46,10 @@
                 <!-- <ComboBoxItem Content="Pink" />
                 <ComboBoxItem Content="White" /> -->
             </ComboBox>
-            <Label x:Name="ModTypeLabel" HorizontalAlignment="Center" Content="Mod Type" />
-            <ComboBox x:Name="ModTypeComboBox" Width="70" SelectedValue="{Binding ModType}" SelectedValuePath="Content">
-                <ComboBoxItem Content="Frequency" IsSelected="True" />
-                <ComboBoxItem Content="Amplitude" />
+            <Label x:Name="ModTypeLabel" HorizontalAlignment="Left" Content="Mod Type" />
+            <ComboBox x:Name="ModTypeComboBox" HorizontalAlignment="Left" Width="75" SelectedValue="{Binding ModType}" SelectedValuePath="Content" SelectionChanged="ModTypeComboBox_SelectionChanged">
+                <ComboBoxItem Content="Freq" IsSelected="True" />
+                <ComboBoxItem Content="Amp" />
             </ComboBox>
         </StackPanel>
     </Grid>

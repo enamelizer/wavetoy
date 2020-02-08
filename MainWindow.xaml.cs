@@ -21,9 +21,9 @@ namespace wavetoy
             this.DataContext = this;
 
             // create the oscillator option models
-            var osc1 = new OscillatorOptions() { Name = "Main Oscillator", Enabled = false, ModType = "Frequency", WaveType = "Sin", Frequency = 400, Amplitude = 0.2f };
-            var osc2 = new OscillatorOptions() { Name = "1st Modulator", Enabled = false, ModType = "Frequency", WaveType = "Sin", Frequency = 400, Amplitude = 0 };
-            var osc3 = new OscillatorOptions() { Name = "2nd Modulator", Enabled = false, ModType = "Frequency", WaveType = "Sin", Frequency = 400, Amplitude = 0 };
+            var osc1 = new OscillatorOptions() { Name = "Main Oscillator", Enabled = false, ModType = "Freq", WaveType = "Sin", Frequency = 400, Amplitude = 0.2f };
+            var osc2 = new OscillatorOptions() { Name = "1st Modulator", Enabled = false, ModType = "Freq", WaveType = "Sin", Frequency = 400, Amplitude = 0 };
+            var osc3 = new OscillatorOptions() { Name = "2nd Modulator", Enabled = false, ModType = "Freq", WaveType = "Sin", Frequency = 400, Amplitude = 0 };
 
             // bind them to the controls
             OscillatorControl1.DataContext = osc1;

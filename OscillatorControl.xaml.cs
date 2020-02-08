@@ -25,5 +25,14 @@ namespace wavetoy
                 if (binding != null) { binding.UpdateSource(); }
             }
         }
+
+        private void ModTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var comboBox = sender as ComboBox;
+            if (comboBox.SelectedValue.ToString() == "Freq")
+                this.AmpSlider.Maximum = 1000;
+            else if (comboBox.SelectedValue.ToString() == "Amp")
+                this.AmpSlider.Maximum = 1;
+        }
     }
 }

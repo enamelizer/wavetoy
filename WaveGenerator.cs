@@ -74,12 +74,11 @@ namespace wavetoy
         private void FillTable(SignalGeneratorType signalGeneratorType)
         {
             waveTable = new float[(int)sampleRate];
-            var sigGen = new SignalGenerator() { Frequency = 2, Gain = 1, Type = signalGeneratorType };
+            var sigGen = new SignalGenerator(44100, 1) { Frequency = 1, Gain = 1, Type = signalGeneratorType };
             sigGen.Read(waveTable, 0, (int)sampleRate);
 
             // debug
-            //foreach (var value in waveTable)
-                //System.Diagnostics.Debug.WriteLine(value.ToString());
+            System.Diagnostics.Debug.WriteLine(String.Format("start: {0}, mid: {1}, end: {2}", waveTable[0], waveTable[(int)((sampleRate/2))], waveTable[(int)sampleRate-1]));
 
             readPosition = 0;
         }
@@ -180,9 +179,9 @@ namespace wavetoy
                         osc.WaveTable.Read(tempBuffer, 0, 1);
 
                         // TODO, figure out how to not be bound to arbitrary UI strings (bind to enums?)
-                        if (osc.OsclliatorOptions.ModType == "Frequency")
+                        if (osc.OsclliatorOptions.ModType == "Freq")
                             prevOsc.WaveTable.SetFrequency(prevOsc.OsclliatorOptions.Frequency + tempBuffer[0]);
-                        else if (osc.OsclliatorOptions.ModType == "Amplitude")
+                        else if (osc.OsclliatorOptions.ModType == "Amp")
                             prevOsc.WaveTable.SetAmplitude(prevOsc.OsclliatorOptions.Amplitude + tempBuffer[0]);
                     }
                 }

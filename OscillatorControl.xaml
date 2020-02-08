@@ -25,7 +25,7 @@
         
         <!-- Sliders -->
         <Slider Grid.Row="1" Grid.Column="0" Height="225" Orientation="Vertical" HorizontalAlignment="Center" Value="{Binding Frequency}" Minimum="0" Maximum="15000" TickFrequency="1" IsSnapToTickEnabled="True" />
-        <Slider Grid.Row="1" Grid.Column="1" Height="225" Orientation="Vertical" HorizontalAlignment="Center" Value="{Binding Amplitude}" Minimum="0" Maximum="1" TickFrequency="0.01" IsSnapToTickEnabled="True" />
+        <Slider x:Name="AmpSlider" Grid.Row="1" Grid.Column="1" Height="225" Orientation="Vertical" HorizontalAlignment="Center" Value="{Binding Amplitude}" Minimum="0" Maximum="100" TickFrequency="0.1" IsSnapToTickEnabled="True" />
         
         <!-- Slider values -->
         <TextBox Grid.Row="2" Grid.Column="0" Width="50" Height="20" VerticalAlignment="Center" Text="{Binding Frequency}" KeyUp="TextBox_KeyEnterUpdate" />
@@ -40,8 +40,8 @@
                 <ComboBoxItem Content="Square" />
                 <ComboBoxItem Content="Triangle" />
                 <ComboBoxItem Content="SawTooth" />
-                <ComboBoxItem Content="Pink" />
-                <ComboBoxItem Content="White" />
+                <!-- <ComboBoxItem Content="Pink" />
+                <ComboBoxItem Content="White" /> -->
             </ComboBox>
             <Label x:Name="ModTypeLabel" HorizontalAlignment="Center" Content="Mod Type" />
             <ComboBox x:Name="ModTypeComboBox" Width="70" SelectedValue="{Binding ModType}" SelectedValuePath="Content">

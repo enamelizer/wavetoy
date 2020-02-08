@@ -21,7 +21,7 @@ namespace wavetoy
             this.DataContext = this;
 
             // create the oscillator option models
-            var osc1 = new OscillatorOptions() { Name = "Main Oscillator", Enabled = false, ModType = "Frequency", WaveType = "Sin", Frequency = 400, Amplitude = 0 };
+            var osc1 = new OscillatorOptions() { Name = "Main Oscillator", Enabled = false, ModType = "Frequency", WaveType = "Sin", Frequency = 400, Amplitude = 0.2f };
             var osc2 = new OscillatorOptions() { Name = "1st Modulator", Enabled = false, ModType = "Frequency", WaveType = "Sin", Frequency = 400, Amplitude = 0 };
             var osc3 = new OscillatorOptions() { Name = "2nd Modulator", Enabled = false, ModType = "Frequency", WaveType = "Sin", Frequency = 400, Amplitude = 0 };
 
@@ -30,9 +30,10 @@ namespace wavetoy
             OscillatorControl2.DataContext = osc2;
             OscillatorControl3.DataContext = osc3;
 
-            // disable the modtype combobox on the first osc control
+            // disable the modtype combobox on the first osc control and change the max value
             OscillatorControl1.ModTypeLabel.Visibility = Visibility.Hidden;
             OscillatorControl1.ModTypeComboBox.Visibility = Visibility.Hidden;
+            OscillatorControl1.AmpSlider.Maximum = 1;
 
             List<OscillatorOptions> oscillatorOptions = new List<OscillatorOptions>() { osc1, osc2, osc3 };
             waveEngine = new WaveEngine(oscillatorOptions);
